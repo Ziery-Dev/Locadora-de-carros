@@ -1,5 +1,13 @@
 package aplication;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.AluguelCarro;
+import entities.Veiculo;
+
 public class InterfaceMain {
 	// O que é interface?
 	/*
@@ -25,7 +33,24 @@ public class InterfaceMain {
 	 */
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Locale.setDefault(Locale.US);
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"); //Formatação para instanciar LocalDateTime
 		
+		//Inserindo valores da classe aluguel
+		System.out.println("Entre com os dados do aluguel");
+		System.out.print("Modelo do carro: ");
+		String modeloCarro = sc.nextLine();
+		System.out.print("Data de retirada: (dd/MM/yyy hh:mm)");
+		LocalDateTime retirada = LocalDateTime.parse(sc.nextLine(), fmt);
+		LocalDateTime retorno =  LocalDateTime.parse(sc.nextLine(), fmt);
+		
+		AluguelCarro aluguel = new AluguelCarro(retirada, retorno, new Veiculo(modeloCarro));
+		
+		
+		
+		
+		sc.close();
 		
 		
 		
