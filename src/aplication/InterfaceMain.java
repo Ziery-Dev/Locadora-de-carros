@@ -66,7 +66,7 @@ public class InterfaceMain {
 		System.out.println("Pagamento total: " + String.format("%.2f",  aluguel.getFatura().getPagamentoTotal()));
 		sc.close();
 		
-		
+		 
 		
 
 	}

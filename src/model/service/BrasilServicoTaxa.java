@@ -1,6 +1,6 @@
 package model.service;
 
-public class BrasilServicoTaxa {
+public class BrasilServicoTaxa implements TaxService{
 	
 
 	//classe responsavel para calcular a taxa de juros Brasileiro de acordo com o custo do aluguel
