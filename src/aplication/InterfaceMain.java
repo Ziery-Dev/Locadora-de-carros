@@ -5,8 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
+	
 import entities.AluguelCarro;
 import entities.Veiculo;
+import model.service.BrasilServicoTaxa;
+import model.service.RentalService;
 
 public class InterfaceMain {
 	// O que é interface?
@@ -43,13 +46,24 @@ public class InterfaceMain {
 		String modeloCarro = sc.nextLine();
 		System.out.print("Data de retirada: (dd/MM/yyy hh:mm)");
 		LocalDateTime retirada = LocalDateTime.parse(sc.nextLine(), fmt);
+		System.out.print("Data de retorno: (dd/MM/yyy hh:mm)");
 		LocalDateTime retorno =  LocalDateTime.parse(sc.nextLine(), fmt);
 		
 		AluguelCarro aluguel = new AluguelCarro(retirada, retorno, new Veiculo(modeloCarro));
 		
+		System.out.println("Entre com o preço por hora: ");
+		double precoHora = sc.nextDouble();
+		System.out.println("Entre com o preço por dia: ");
+		double precoDia = sc.nextDouble();
 		
+		RentalService retalService = new RentalService(precoHora, precoDia, new BrasilServicoTaxa());
 		
+		retalService.processamentoFatura(aluguel);
 		
+		System.out.println("Fatura: ");
+		System.out.println("Pagamento basico: " + String.format("%.2f",  aluguel.getFatura().getPagamentoBasico()));
+		System.out.println("Imposto: " + String.format("%.2f", aluguel.getFatura().getTaxa()));
+		System.out.println("Pagamento total: " + String.format("%.2f",  aluguel.getFatura().getPagamentoTotal()));
 		sc.close();
 		
 		

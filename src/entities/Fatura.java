@@ -6,6 +6,9 @@ public class Fatura {
 	
 	
 	//construtor
+	public Fatura() {
+		
+	}
 	public Fatura(Double pagamentoBasico, Double taxa) {
 		this.pagamentoBasico = pagamentoBasico;
 		this.taxa = taxa;
