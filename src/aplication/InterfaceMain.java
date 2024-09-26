@@ -51,6 +51,8 @@ public class InterfaceMain {
 		
 		AluguelCarro aluguel = new AluguelCarro(retirada, retorno, new Veiculo(modeloCarro));
 		
+		//inserindo valores da classe retalService
+		
 		System.out.println("Entre com o preço por hora: ");
 		double precoHora = sc.nextDouble();
 		System.out.println("Entre com o preço por dia: ");
@@ -60,6 +62,7 @@ public class InterfaceMain {
 		
 		retalService.processamentoFatura(aluguel);
 		
+		//exibição na tela
 		System.out.println("Fatura: ");
 		System.out.println("Pagamento basico: " + String.format("%.2f",  aluguel.getFatura().getPagamentoBasico()));
 		System.out.println("Imposto: " + String.format("%.2f", aluguel.getFatura().getTaxa()));
