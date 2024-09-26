@@ -64,7 +64,7 @@ public class InterfaceMain {
 		
 		//exibição na tela
 		System.out.println("Fatura: ");
-		System.out.println("Pagamento basico: " + String.format("%.2f",  aluguel.getFatura().getPagamentoBasico()));
+		System.out.println("Pagamento básico: " + String.format("%.2f",  aluguel.getFatura().getPagamentoBasico()));
 		System.out.println("Imposto: " + String.format("%.2f", aluguel.getFatura().getTaxa()));
 		System.out.println("Pagamento total: " + String.format("%.2f",  aluguel.getFatura().getPagamentoTotal()));
 		sc.close();
